@@ -1,0 +1,55 @@
+<view class="settings-container">
+  <view class="header">
+    <view class="header-icon">⚙️</view>
+    <text class="title">API 设置</text>
+    <text class="subtitle">配置LLM API以使用礼物推荐功能</text>
+  </view>
+
+  <view class="form">
+    <view class="form-item">
+      <text class="label">API URL</text>
+      <van-field
+        value="{{form.apiUrl}}"
+        placeholder="请输入API地址"
+        bind:change="onApiUrlChange"
+        custom-class="input"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">API Key</text>
+      <van-field
+        value="{{form.apiKey}}"
+        type="password"
+        placeholder="请输入API Key"
+        bind:change="onApiKeyChange"
+        custom-class="input"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">Model</text>
+      <van-field
+        value="{{form.model}}"
+        placeholder="请输入模型名称"
+        bind:change="onModelChange"
+        custom-class="input"
+      />
+    </view>
+  </view>
+
+  <view class="tips">
+    <text class="tips-title">使用说明:</text>
+    <text class="tips-item">• API URL: 默认使用 SiliconFlow API</text>
+    <text class="tips-item">• API Key: 请在 SiliconFlow 控制台获取</text>
+    <text class="tips-item">• Model: 默认使用 Qwen/Qwen3-8B</text>
+  </view>
+
+  <view class="footer">
+    <van-button type="primary" block bind:click="handleSave" loading="{{loading}}">
+      保存配置
+    </van-button>
+  </view>
+
+  <van-toast id="van-toast" />
+</view>

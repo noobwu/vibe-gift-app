@@ -1,0 +1,132 @@
+/**app.wxss**/
+page {
+  background-color: #f7f8fa;
+  font-size: 28rpx;
+  color: #323233;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 覆盖Vant默认样式 */
+.van-field__control {
+  font-size: 28rpx !important;
+  color: #323233 !important;
+  background: transparent !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.van-field__control::placeholder {
+  color: #c8c9cc !important;
+}
+
+.van-field {
+  border-radius: 24rpx !important;
+  background: linear-gradient(145deg, #f7f8fa 0%, #f2f3f5 100%) !important;
+  box-shadow:
+    inset 2rpx 2rpx 8rpx rgba(0, 0, 0, 0.04),
+    inset -2rpx -2rpx 8rpx rgba(255, 255, 255, 0.8),
+    0 4rpx 12rpx rgba(0, 0, 0, 0.06) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: 2rpx solid #e5e6eb !important;
+  position: relative !important;
+}
+
+.van-field::before {
+  content: '';
+  position: absolute;
+  top: 1rpx;
+  left: 1rpx;
+  right: 1rpx;
+  bottom: 1rpx;
+  border-radius: 22rpx;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.van-field:focus-within {
+  border-color: #1989fa !important;
+  box-shadow:
+    inset 2rpx 2rpx 8rpx rgba(25, 137, 250, 0.06),
+    inset -2rpx -2rpx 8rpx rgba(255, 255, 255, 0.95),
+    0 6rpx 20rpx rgba(25, 137, 250, 0.25) !important;
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%) !important;
+  transform: translateY(-1rpx);
+}
+
+.van-field__body {
+  padding: 10rpx 24rpx !important;
+  position: relative;
+  z-index: 2;
+  min-height: 56rpx;
+}
+
+/* 主按钮 - 立体渐变效果 */
+.van-button--primary {
+  background: linear-gradient(135deg, #1989fa 0%, #1c6bd9 100%) !important;
+  border: none !important;
+  box-shadow: 0 8rpx 20rpx rgba(25, 137, 250, 0.35) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.van-button--primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+
+.van-button--primary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.van-button--primary:active {
+  transform: translateY(2rpx) !important;
+  box-shadow: 0 4rpx 12rpx rgba(25, 137, 250, 0.3) !important;
+}
+
+/* 次级按钮 - 边框样式 */
+.van-button--plain.van-button--primary {
+  color: #1989fa !important;
+  border: 2rpx solid #1989fa !important;
+  background: #fff !important;
+  box-shadow: 0 4rpx 12rpx rgba(25, 137, 250, 0.15) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.van-button--plain.van-button--primary:active {
+  transform: translateY(2rpx) !important;
+  box-shadow: 0 2rpx 8rpx rgba(25, 137, 250, 0.1) !important;
+}
+
+/* 标签样式 */
+.van-tag--primary {
+  background-color: #e8f3ff !important;
+  color: #1989fa !important;
+  box-shadow: 0 2rpx 8rpx rgba(25, 137, 250, 0.15) !important;
+  border-radius: 12rpx !important;
+  font-weight: 500 !important;
+}
+
+/* 按钮圆角增强 */
+.van-button {
+  border-radius: 48rpx !important;
+  font-weight: 600 !important;
+  letter-spacing: 1rpx !important;
+}

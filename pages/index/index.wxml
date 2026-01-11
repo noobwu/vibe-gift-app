@@ -1,0 +1,146 @@
+<view class="container">
+  <!-- 顶部导航 -->
+  <view class="header">
+    <view class="header-icon">🎁</view>
+    <text class="title">送礼灵感</text>
+    <text class="subtitle">AI智能推荐，帮你找到完美礼物</text>
+  </view>
+
+  <!-- 表单区域 -->
+  <view class="form-card" wx:if="{{!showResults}}">
+    <!-- 性别选择 -->
+    <view class="form-section">
+      <text class="section-title">收礼人性别</text>
+      <view class="gender-options">
+        <view
+          class="gender-option {{form.gender === '男' ? 'active' : ''}}"
+          bindtap="selectGender"
+          data-gender="男"
+        >
+          <text class="gender-icon">👨</text>
+          <text class="gender-text">男士</text>
+        </view>
+        <view
+          class="gender-option {{form.gender === '女' ? 'active' : ''}}"
+          bindtap="selectGender"
+          data-gender="女"
+        >
+          <text class="gender-icon">👩</text>
+          <text class="gender-text">女士</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 年龄输入 -->
+    <view class="form-section">
+      <text class="section-title">收礼人年龄</text>
+      <van-field
+        value="{{form.age}}"
+        type="digit"
+        placeholder="请输入年龄"
+        bind:change="onAgeChange"
+        custom-class="input"
+      />
+    </view>
+
+    <!-- 兴趣爱好 -->
+    <view class="form-section">
+      <text class="section-title">兴趣爱好（可选）</text>
+      <van-field
+        value="{{form.interests}}"
+        placeholder="如：阅读、运动、音乐等"
+        bind:change="onInterestsChange"
+        custom-class="input"
+      />
+      <text class="tip">填入兴趣可获更精准推荐</text>
+    </view>
+
+    <!-- 预算范围 -->
+    <view class="form-section">
+      <text class="section-title">预算范围（元）</text>
+      <view class="budget-inputs">
+        <van-field
+          value="{{form.minBudget}}"
+          type="digit"
+          placeholder="最低"
+          bind:change="onMinBudgetChange"
+          custom-class="budget-input"
+        />
+        <text class="budget-separator">-</text>
+        <van-field
+          value="{{form.maxBudget}}"
+          type="digit"
+          placeholder="最高"
+          bind:change="onMaxBudgetChange"
+          custom-class="budget-input"
+        />
+      </view>
+    </view>
+
+    <!-- 生成按钮 -->
+    <view class="submit-section">
+      <van-button
+        type="primary"
+        block
+        round
+        bind:click="handleGenerate"
+        loading="{{loading}}"
+        loading-text="生成中..."
+      >
+        ✨ 生成推荐
+      </van-button>
+    </view>
+  </view>
+
+  <!-- 推荐结果区域 -->
+  <view class="results-card" wx:else>
+    <view class="results-header">
+      <text class="results-title">为你推荐的礼物</text>
+      <text class="results-subtitle">基于{{form.gender}} | {{form.age}}岁 | {{form.minBudget}}-{{form.maxBudget}}元</text>
+    </view>
+
+    <view class="recommendations">
+      <view
+        class="recommendation-item"
+        wx:for="{{recommendations}}"
+        wx:key="index"
+      >
+        <view class="item-number">{{index + 1}}</view>
+        <view class="item-content">
+          <text class="item-name">{{item.name}}</text>
+          <van-tag type="primary" size="medium">{{item.feature}}</van-tag>
+        </view>
+      </view>
+    </view>
+
+    <view class="results-actions">
+      <van-button
+        plain
+        type="primary"
+        block
+        round
+        bind:click="handleRegenerate"
+        loading="{{loading}}"
+        loading-text="生成中..."
+      >
+        🔄 换一批
+      </van-button>
+      <van-button
+        plain
+        block
+        round
+        bind:click="handleReset"
+        custom-class="reset-btn"
+      >
+        📝 重新填写
+      </van-button>
+    </view>
+  </view>
+
+  <!-- 设置入口 -->
+  <view class="settings-entry" bindtap="goToSettings">
+    <text class="settings-text">⚙️ API设置</text>
+  </view>
+
+  <van-toast id="van-toast" />
+</view>

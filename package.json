@@ -1,0 +1,21 @@
+{
+  "name": "vibe-gift-app",
+  "version": "1.0.0",
+  "description": "AI驱动的送礼灵感生成器微信小程序",
+  "main": "app.js",
+  "scripts": {
+    "dev": "echo '请在微信开发者工具中打开项目'"
+  },
+  "keywords": [
+    "wechat",
+    "miniprogram",
+    "gift",
+    "ai",
+    "recommendation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  }
+}

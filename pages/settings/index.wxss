@@ -1,0 +1,126 @@
+/* pages/settings/index.wxss */
+.settings-container {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding-bottom: 40rpx;
+}
+
+.header {
+  background: linear-gradient(135deg, #1989fa 0%, #1c6bd9 100%);
+  padding: 60rpx 32rpx 80rpx;
+  border-radius: 0 0 48rpx 48rpx;
+  box-shadow: 0 8rpx 24rpx rgba(25, 137, 250, 0.15);
+  text-align: center;
+}
+
+.header-icon {
+  font-size: 80rpx;
+  margin-bottom: 16rpx;
+  filter: drop-shadow(0 4rpx 12rpx rgba(0, 0, 0, 0.15));
+  display: inline-block;
+}
+
+.header .title {
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 16rpx;
+  letter-spacing: 2rpx;
+  text-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.header .subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+}
+
+.form {
+  background: #fff;
+  border-radius: 28rpx;
+  padding: 48rpx 32rpx;
+  margin: -40rpx 32rpx 24rpx;
+  box-shadow: 0 6rpx 24rpx rgba(0, 0, 0, 0.08);
+}
+
+.form-item {
+  margin-bottom: 20rpx;
+}
+
+.form-item:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  display: block;
+  font-size: 30rpx;
+  color: #323233;
+  margin-bottom: 10rpx;
+  font-weight: 600;
+  position: relative;
+  padding-left: 12rpx;
+}
+
+.label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4rpx;
+  height: 20rpx;
+  background: linear-gradient(135deg, #1989fa 0%, #1c6bd9 100%);
+  border-radius: 2rpx;
+}
+
+.input {
+  background: linear-gradient(135deg, #f7f8fa 0%, #f2f3f5 100%) !important;
+  border-radius: 24rpx !important;
+  font-size: 28rpx;
+  border: 2rpx solid transparent !important;
+}
+
+.tips {
+  background: #fff;
+  border-radius: 28rpx;
+  padding: 32rpx;
+  margin: 0 32rpx 32rpx;
+  box-shadow: 0 6rpx 24rpx rgba(0, 0, 0, 0.08);
+}
+
+.tips-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #323233;
+  margin-bottom: 20rpx;
+}
+
+.tips-item {
+  display: block;
+  font-size: 26rpx;
+  color: #646566;
+  line-height: 44rpx;
+  margin-bottom: 8rpx;
+  padding-left: 20rpx;
+  position: relative;
+}
+
+.tips-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8rpx;
+  height: 8rpx;
+  background: #1989fa;
+  border-radius: 50%;
+}
+
+.footer {
+  padding: 0 48rpx;
+  margin-top: 32rpx;
+}
