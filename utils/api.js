@@ -98,6 +98,9 @@ async function generateGiftRecommendations(params) {
 
   return callAPIWithRetry(() => {
     return new Promise((resolve, reject) => {
+      let timeoutId = null
+      let requestCompleted = false
+
       const requestTask = wx.request({
         url: apiUrl,
         method: 'POST',
@@ -123,6 +126,9 @@ async function generateGiftRecommendations(params) {
           enable_thinking: false
         },
         success(res) {
+          requestCompleted = true
+          clearTimeout(timeoutId)
+          
           try {
             const data = res.data
 
@@ -147,6 +153,9 @@ async function generateGiftRecommendations(params) {
           }
         },
         fail(err) {
+          requestCompleted = true
+          clearTimeout(timeoutId)
+          
           console.error('API调用失败:', err)
           let errorMsg = err.errMsg || '生成推荐失败,请稍后重试'
           
@@ -158,19 +167,22 @@ async function generateGiftRecommendations(params) {
           }
           
           reject(new Error(errorMsg))
+        },
+        complete() {
+          // 使用complete回调确保定时器被清理
+          if (!requestCompleted) {
+            clearTimeout(timeoutId)
+          }
         }
       })
 
       // 设置超时定时器
-      const timeoutId = setTimeout(() => {
-        requestTask.abort()
-        reject(new Error('请求超时，请稍后重试'))
+      timeoutId = setTimeout(() => {
+        if (!requestCompleted) {
+          requestTask.abort()
+          reject(new Error('请求超时，请稍后重试'))
+        }
       }, API_CONFIG.timeout)
-
-      // 请求完成后清除定时器
-      requestTask.onComplete(() => {
-        clearTimeout(timeoutId)
-      })
     })
   })
 }
