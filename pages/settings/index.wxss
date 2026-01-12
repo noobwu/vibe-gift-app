@@ -80,6 +80,9 @@
   border-radius: 24rpx !important;
   font-size: 28rpx;
   border: 2rpx solid transparent !important;
+  padding: 8rpx 24rpx !important;
+  min-height: auto !important;
+  line-height: 1.4 !important;
 }
 
 .tips {
