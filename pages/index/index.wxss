@@ -12,9 +12,18 @@
   box-shadow: 0 8rpx 24rpx rgba(25, 137, 250, 0.15);
 }
 
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  flex-shrink: 0;
+}
+
 .header-icon {
   font-size: 96rpx;
-  margin-bottom: 20rpx;
   filter: drop-shadow(0 8rpx 20rpx rgba(0, 0, 0, 0.2));
   animation: float 3s ease-in-out infinite;
 }
@@ -26,6 +35,11 @@
   50% {
     transform: translateY(-10rpx);
   }
+}
+
+.header-right {
+  flex: 1;
+  text-align: right;
 }
 
 .header .title {

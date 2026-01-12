@@ -1,9 +1,15 @@
 <view class="container">
   <!-- 顶部导航 -->
   <view class="header">
-    <view class="header-icon">🎁</view>
-    <text class="title">送礼灵感</text>
-    <text class="subtitle">AI智能推荐，帮你找到完美礼物</text>
+    <view class="header-content">
+      <view class="header-left">
+        <view class="header-icon">🎁</view>
+      </view>
+      <view class="header-right">
+        <text class="title">送礼灵感</text>
+        <text class="subtitle">AI智能推荐，帮你找到完美礼物</text>
+      </view>
+    </view>
   </view>
 
   <!-- 表单区域 -->
