@@ -33,14 +33,22 @@
 
     <!-- 年龄输入 -->
     <view class="form-section">
-      <text class="section-title">收礼人年龄</text>
-      <van-field
+      <view class="age-header">
+        <text class="section-title">收礼人年龄</text>
+        <text class="age-value">{{form.age}}岁</text>
+      </view>
+      <van-slider
         value="{{form.age}}"
-        type="digit"
-        placeholder="请输入年龄"
+        min="3"
+        max="100"
+        step="1"
         bind:change="onAgeChange"
-        custom-class="input"
+        custom-class="age-slider"
       />
+      <view class="age-range">
+        <text>3岁</text>
+        <text>100岁</text>
+      </view>
     </view>
 
     <!-- 兴趣爱好 -->

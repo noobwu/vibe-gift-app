@@ -6,7 +6,7 @@ Page({
   data: {
     form: {
       gender: '男',
-      age: '',
+      age: 25,
       interests: '',
       minBudget: '',
       maxBudget: ''

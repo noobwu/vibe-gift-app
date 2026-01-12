@@ -83,6 +83,33 @@
   border-radius: 2rpx;
 }
 
+.age-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.age-value {
+  font-size: 28rpx;
+  color: #1989fa;
+  font-weight: 600;
+  background: rgba(25, 137, 250, 0.1);
+  padding: 8rpx 16rpx;
+  border-radius: 16rpx;
+}
+
+.age-slider {
+  margin: 20rpx 0 12rpx !important;
+}
+
+.age-range {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #969799;
+}
+
 .gender-options {
   display: flex;
   gap: 16rpx;
